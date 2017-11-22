@@ -2,8 +2,6 @@
 
 namespace MonsterCity\ValueObject;
 
-use MonsterCity\Residents;
-
 class City
 {
     private $name;
@@ -26,14 +24,14 @@ class City
 
         if ($this->residents->shouldBeAFight()) {
             $this->residents->kill();
-            $this->destroy();
+//            $this->destroy();
         }
 
         return $this;
     }
 
-    private function destroy()
-    {
-        unset($this);
-    }
+//    private function destroy()
+//    {
+//        unset($this);
+//    }
 }

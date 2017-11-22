@@ -1,8 +1,6 @@
 <?php
 
-namespace MonsterCity;
-
-use MonsterCity\ValueObject\Monster;
+namespace MonsterCity\ValueObject;
 
 class Residents
 {

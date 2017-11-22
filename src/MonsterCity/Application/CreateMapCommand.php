@@ -2,13 +2,13 @@
 
 namespace MonsterCity\Application;
 
-use MonsterCity\ValueObject\MonsterCityService;
+use MonsterCity\Service\MonsterCityService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MonsterCityCommand extends Command
+class CreateMapCommand extends Command
 {
     /** @var MonsterCityService */
     private $service;
@@ -21,7 +21,8 @@ class MonsterCityCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $number = $input->getArgument('monsters_number');
+        $this->service->createWorld();
+        $this->service->buildCitiesFromMap('/Users/sorin.popescu/workspace/monster-city/map/world_map');
     }
 
     /**
@@ -29,12 +30,12 @@ class MonsterCityCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('unleash:monsters')
-            ->setDescription('Muahaha!')
+        $this->setName('be:light')
+            ->setDescription('And there was light!')
             ->addArgument(
-                'monsters_number',
-                InputArgument::REQUIRED,
-                'Monsters number'
+                'map_path',
+                InputArgument::OPTIONAL,
+                'Path to the map file.'
             );
     }
 }

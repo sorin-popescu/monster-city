@@ -1,20 +1,25 @@
 <?php
 
-namespace MonsterCity\ValueObject;
+namespace MonsterCity\Service;
 
 use MonsterCity\Aggregate\World;
 
 class MonsterCityService
 {
-    private $map;
+    /** @var World */
+    private $world;
 
-    public function __construct($map)
+    public function __construct()
     {
-        $this->map = $map;
     }
 
-    public function loadMap()
+    public function createWorld()
     {
-        return World::fromFile($this->map);
+        $this->world = World::create();
+    }
+
+    public function buildCitiesFromMap($map)
+    {
+        $this->world->buildCitiesFromMap($map);
     }
 }

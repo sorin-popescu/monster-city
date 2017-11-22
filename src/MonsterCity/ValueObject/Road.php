@@ -12,12 +12,18 @@ class Road
 
     private $west;
 
-    private function __construct()
+    /**
+     * Road constructor.
+     * @param $north
+     * @param $south
+     * @param $east
+     * @param $west
+     */
+    public function __construct($north, $south, $east, $west)
     {
-    }
-
-    public static function build()
-    {
-
+        $this->north = $north;
+        $this->south = $south;
+        $this->east = $east;
+        $this->west = $west;
     }
 }
